@@ -1,91 +1,94 @@
-import * as Shoppingcard from './textSlide.js'
+import * as Shoppingcard from "./textSlide.js";
 
-let ACTIVE_USER
-let currentUser = undefined
-const users = [{
-    email: 'bb@',
-    pass: '123',
-    basket: []
-}, {
-    email: 'zz@',
-    pass: '1',
-    basket: []
-}, {
-    email: 'xx@',
-    pass: '1234567890',
-    basket: []
-}];
+let ACTIVE_USER;
+let currentUser = undefined;
+const users = [
+   {
+      email: "bb@",
+      pass: "123",
+      basket: [],
+   },
+   {
+      email: "zz@",
+      pass: "1",
+      basket: [],
+   },
+   {
+      email: "xx@",
+      pass: "1234567890",
+      basket: [],
+   },
+];
 
-// Local Storage 
-const USERS_KEY = 'usersObj'
-const localStorageUsers = JSON.parse(localStorage.getItem(USERS_KEY)) || []
+// Local Storage
+const USERS_KEY = "usersObj";
+const localStorageUsers = JSON.parse(localStorage.getItem(USERS_KEY)) || [];
 if (!localStorageUsers) {
-    localStorage.setItem(USERS_KEY, JSON.stringify(users))
+   localStorage.setItem(USERS_KEY, JSON.stringify(users));
 }
 
 //click on any exercise in menu and switch to this window
-headerContent.addEventListener('click', function (e) {
-    e.preventDefault()
-    if (e.target.classList.contains('nav_link')) {
-        const href = e.target.getAttribute('href')
-        document.querySelector(href).scrollIntoView({ behavior: 'smooth' })
-    }
-})
+headerContent.addEventListener("click", function (e) {
+   e.preventDefault();
+   if (e.target.classList.contains("nav_link")) {
+      const href = e.target.getAttribute("href");
+      document.querySelector(href).scrollIntoView({ behavior: "smooth" });
+   }
+});
 
-btn1.addEventListener('click', function (e) {
-    e.preventDefault()
-    section1.scrollIntoView({ behavior: 'smooth' })
-})
+btn1.addEventListener("click", function (e) {
+   e.preventDefault();
+   section1.scrollIntoView({ behavior: "smooth" });
+});
 
 //Add transitionX for sections
 function intersecEveryInfo(observe, swt) {
-    function transitionFotInfo(el) {
-        const every = el[0]
-        if (every.isIntersecting) observe.classList.add('about', swt)
-    }
-    const observerForInfo = new IntersectionObserver(transitionFotInfo, {
-        root: null,
-        threshold: 0.1
-    })
-    observerForInfo.observe(observe)
+   function transitionFotInfo(el) {
+      const every = el[0];
+      if (every.isIntersecting) observe.classList.add("about", swt);
+   }
+   const observerForInfo = new IntersectionObserver(transitionFotInfo, {
+      root: null,
+      threshold: 0.1,
+   });
+   observerForInfo.observe(observe);
 }
-intersecEveryInfo(firstInfoCase)
-intersecEveryInfo(secondInfoCase, 'left')
-intersecEveryInfo(thirtyInfoCase)
+intersecEveryInfo(firstInfoCase);
+intersecEveryInfo(secondInfoCase, "left");
+intersecEveryInfo(thirtyInfoCase);
 
 //import function from textSlide.js
-Shoppingcard.showText()
+Shoppingcard.showText();
 
 //Functional for textSlider
 function showInfo() {
-    btnSelect.forEach(el => {
-        el.addEventListener('click', function (btn) {
-            let res = +Object.values(btn.target.dataset)
-            if (res === 0) numForShow(inf1, inf2, inf0)
-            if (res === 1) numForShow(inf0, inf2, inf1)
-            if (res === 2) numForShow(inf0, inf1, inf2)
-            suka(res)
-        })
-    })
+   btnSelect.forEach((el) => {
+      el.addEventListener("click", function (btn) {
+         let res = +Object.values(btn.target.dataset);
+         if (res === 0) numForShow(inf1, inf2, inf0);
+         if (res === 1) numForShow(inf0, inf2, inf1);
+         if (res === 2) numForShow(inf0, inf1, inf2);
+         suka(res);
+      });
+   });
 
-    function numForShow(arg0, arg1, arg2) {
-        arg0.classList.add('hide')
-        arg1.classList.add('hide')
-        arg2.classList.remove('hide')
-    }
+   function numForShow(arg0, arg1, arg2) {
+      arg0.classList.add("hide");
+      arg1.classList.add("hide");
+      arg2.classList.remove("hide");
+   }
 
-    function suka(arg) {
-        btnSelect.forEach(el => el.classList.remove('tab'))
-        btnSelect[arg].classList.add('tab')
-    }
+   function suka(arg) {
+      btnSelect.forEach((el) => el.classList.remove("tab"));
+      btnSelect[arg].classList.add("tab");
+   }
+}
 
-};
-
-showInfo()
+showInfo();
 
 //This function are created html code with help him , we can see card where we are loging
 function createCard(event, inpEm, inpPa, btn) {
-    return `<div class="card sticky1">
+   return `<div class="card sticky1">
     <div class="close">
     <h4 class="title">${event}</h4>
     <h4><a href="#" class="closeX">x</a></h4>
@@ -111,179 +114,200 @@ function createCard(event, inpEm, inpPa, btn) {
     </div>
     <button class="${btn} btnStyle" type="submit">Login</button>
     </form>
-    <div class="er-with-log-div"></div>`
+    <div class="er-with-log-div"></div>`;
 }
 
 //This function will be close everything icons when we will use this moments
 function close() {
-    document.addEventListener('keydown', function (e) {
-        if (e.which === 27) {
-            overlay.classList.add('hide')
-            document.querySelector('.card').classList.add('hide')
-        }
-    })
+   document.addEventListener("keydown", function (e) {
+      if (e.which === 27) {
+         overlay.classList.add("hide");
+         document.querySelector(".card").classList.add("hide");
+      }
+   });
 
-    document.querySelector('.closeX').addEventListener('click', function (e) { 
-        e.preventDefault()
-        overlay.classList.add('hide')
-        document.querySelector('.card').classList.add('hide')
-    })
+   document.querySelector(".closeX").addEventListener("click", function (e) {
+      e.preventDefault();
+      overlay.classList.add("hide");
+      document.querySelector(".card").classList.add("hide");
+   });
 
-    document.querySelector('.overlay').addEventListener('click', function (e) {
-        e.preventDefault()
-        overlay.classList.add('hide')
-        document.querySelector('.card').classList.add('hide')
-    })
-
+   document.querySelector(".overlay").addEventListener("click", function (e) {
+      e.preventDefault();
+      overlay.classList.add("hide");
+      document.querySelector(".card").classList.add("hide");
+   });
 }
 
 //this func are created error text for cards
 function createErrorText(text) {
-    const element = document.createElement('div')
-    element.setAttribute('class', 'er-with-log')
-    element.textContent = text
-    const erDiv = document.querySelector('.er-with-log-div')
-    erDiv.appendChild(element)
+   const element = document.createElement("div");
+   element.setAttribute("class", "er-with-log");
+   element.textContent = text;
+   const erDiv = document.querySelector(".er-with-log-div");
+   erDiv.appendChild(element);
 }
 
 //Settings for reg or log buttons
 function settingsForRegLog(e, event, inpEm, inpPa, btn) {
-    overlay.classList.remove('hide')
-    e.preventDefault()
-    divForMenu.innerHTML = createCard(event, inpEm, inpPa, btn)
-    close()
+   overlay.classList.remove("hide");
+   e.preventDefault();
+   divForMenu.innerHTML = createCard(event, inpEm, inpPa, btn);
+   close();
 }
 
 //reg implementation
-reg.addEventListener('click', function (e) {
-    settingsForRegLog(e, 'Register!', 'inputforlogin', 'inputforpassword', 'btnGG')
-    document.querySelector('.btnGG').addEventListener('click', function (e) {
-        e.preventDefault()
-        const checkNameObj = function (nameArg) {
-            return localStorageUsers.some(el => el.email === nameArg)
-        }
-        const userEmail = document.querySelector('.inputforlogin').value
-        const userPassword = document.querySelector('.inputforpassword').value
-        if (userPassword.length < 3) createErrorText(`Password is very short`)
-        else if (!userEmail.includes('@')) createErrorText(`Email doesn't have '@' symbol'`)
-        else if (checkNameObj(userEmail)) createErrorText(`This login already used`)
-        else {
-            localStorageUsers.push({
-                email: userEmail,
-                pass: userPassword.toString(),
-                basket: []
-            })
-            localStorage.setItem(USERS_KEY, JSON.stringify(localStorageUsers))
-            document.querySelector('.card').classList.add('hide')
-            overlay.classList.add('hide')
-        }
-    })
-})
+reg.addEventListener("click", function (e) {
+   settingsForRegLog(
+      e,
+      "Register!",
+      "inputforlogin",
+      "inputforpassword",
+      "btnGG"
+   );
+   document.querySelector(".btnGG").addEventListener("click", function (e) {
+      e.preventDefault();
+      const checkNameObj = function (nameArg) {
+         return localStorageUsers.some((el) => el.email === nameArg);
+      };
+      const userEmail = document.querySelector(".inputforlogin").value;
+      const userPassword = document.querySelector(".inputforpassword").value;
+      if (userPassword.length < 3) createErrorText(`Password is very short`);
+      else if (!userEmail.includes("@"))
+         createErrorText(`Email doesn't have '@' symbol'`);
+      else if (checkNameObj(userEmail))
+         createErrorText(`This login already used`);
+      else {
+         localStorageUsers.push({
+            email: userEmail,
+            pass: userPassword.toString(),
+            basket: [],
+         });
+         localStorage.setItem(USERS_KEY, JSON.stringify(localStorageUsers));
+         document.querySelector(".card").classList.add("hide");
+         overlay.classList.add("hide");
+      }
+   });
+});
 
 //log implementation
-log.addEventListener('click', function (e) {
-    settingsForRegLog(e, 'Login!', 'inputForSignLog', 'inputForSignPas', 'btnBB')
-    document.querySelector('.btnBB').addEventListener('click', function (e) {
-        e.preventDefault()
-        const userEmail = document.querySelector('.inputForSignLog').value
-        const userPassword = document.querySelector('.inputForSignPas').value
-        const findLogin = function (arg) {
-            return arg.some(el => userEmail === el.email)
-        }
-        const matchPassword = function (arg) {
-            return arg.some(el => userPassword === el.pass)
-        }
-        if (!findLogin(localStorageUsers)) createErrorText('This login does not exist')
-        else if (!matchPassword(localStorageUsers)) createErrorText('Password is wrong')
-        else {
-            document.querySelector('.card').classList.add('hide')
-            //add user interface
-            ACTIVE_USER = localStorageUsers.find(el => {
-                return el.email === userEmail
-            })
-            overlay.classList.add('hide')
-            logBtn.classList.add('hide')
-            userName.classList.remove('hide')
-            currentUser = ACTIVE_USER.email
-            personName.textContent = currentUser
-            basketContent.classList.remove('hide')
-            getItems()
-        }
-    })
-})
+log.addEventListener("click", function (e) {
+   settingsForRegLog(
+      e,
+      "Login!",
+      "inputForSignLog",
+      "inputForSignPas",
+      "btnBB"
+   );
+   document.querySelector(".btnBB").addEventListener("click", function (e) {
+      e.preventDefault();
+      const userEmail = document.querySelector(".inputForSignLog").value;
+      const userPassword = document.querySelector(".inputForSignPas").value;
+      const findLogin = function (arg) {
+         return arg.some((el) => userEmail === el.email);
+      };
+      const matchPassword = function (arg) {
+         return arg.some((el) => userPassword === el.pass);
+      };
+      if (!findLogin(localStorageUsers))
+         createErrorText("This login does not exist");
+      else if (!matchPassword(localStorageUsers))
+         createErrorText("Password is wrong");
+      else {
+         document.querySelector(".card").classList.add("hide");
+         //add user interface
+         ACTIVE_USER = localStorageUsers.find((el) => {
+            return el.email === userEmail;
+         });
+         overlay.classList.add("hide");
+         logBtn.classList.add("hide");
+         userName.classList.remove("hide");
+         currentUser = ACTIVE_USER.email;
+         personName.textContent = currentUser;
+         basketContent.classList.remove("hide");
+         getItems();
+      }
+   });
+});
 
 //implementation exit
-exit.addEventListener('click', function (e) {
-    e.preventDefault()
-    userName.classList.add('hide')
-    logBtn.classList.remove('hide')
-    currentUser = undefined
-    basket.classList.add('hide')
-    ACTIVE_USER.basket = []
-    ACTIVE_USER = undefined
-    document.querySelectorAll('.item_for_orders').forEach(el => el.remove())
-    iconsWithProduct.classList.add('hide')
-    iconsWithProduct.textContent = 0
-})
+exit.addEventListener("click", function (e) {
+   e.preventDefault();
+   userName.classList.add("hide");
+   logBtn.classList.remove("hide");
+   currentUser = undefined;
+   basket.classList.add("hide");
+   ACTIVE_USER.basket = [];
+   ACTIVE_USER = undefined;
+   document.querySelectorAll(".item_for_orders").forEach((el) => el.remove());
+   iconsWithProduct.classList.add("hide");
+   iconsWithProduct.textContent = 0;
+});
 
 //add to basket any items
 const handleClick = function (event) {
-    createItemsForBasket(event);
-    basket.classList.remove('hide');
-    xclsoe.addEventListener('click', function (e) {
-        e.preventDefault();
-        basket.classList.add('hide');
-    });
+   createItemsForBasket(event);
+   basket.classList.remove("hide");
+   xclsoe.addEventListener("click", function (e) {
+      e.preventDefault();
+      basket.classList.add("hide");
+   });
 };
 
 //When we are click on this icons , we're get item in our basket
 function getItems() {
-    if (ACTIVE_USER) {
-        card__item.forEach(el => {
-            el.removeEventListener('click', handleClick);
-        });
+   if (ACTIVE_USER) {
+      card__item.forEach((el) => {
+         el.removeEventListener("click", handleClick);
+      });
 
-        card__item.forEach(el => {
-            el.addEventListener('click', handleClick);
-        });
-    }
+      card__item.forEach((el) => {
+         el.addEventListener("click", handleClick);
+      });
+   }
 }
 
 //Tihs function wiil be created items for basket if we are click on her
 function createItemsForBasket(event) {
-    const divForItems = document.createElement('div')
-    const nameItem = document.createElement('h3')
-    const priceItem = document.createElement('h3')
-    const order = [event.target.parentNode.parentNode.parentNode.children[1].innerText, event.target.parentNode.parentNode.parentNode.children[2].innerText]
-    divForItems.setAttribute('class', 'item_for_orders')
-    card__content.appendChild(divForItems)
-    divForItems.appendChild(nameItem).textContent = order[0]
-    divForItems.appendChild(priceItem).textContent = order[1]
-    ACTIVE_USER.basket.push(Number(order[1].replace('$', '')))
-    console.log(ACTIVE_USER.basket)
-    const result = ACTIVE_USER.basket.reduce((acc, item) => acc += item, 0).toFixed(2)
-    document.querySelector('.priceNum').textContent = result + '$'
-    iconsWithProduct.classList.remove('hide')
-    iconsWithProduct.textContent = ACTIVE_USER.basket.length
+   const divForItems = document.createElement("div");
+   const nameItem = document.createElement("h3");
+   const priceItem = document.createElement("h3");
+   const order = [
+      event.target.parentNode.parentNode.parentNode.children[1].innerText,
+      event.target.parentNode.parentNode.parentNode.children[2].innerText,
+   ];
+   divForItems.setAttribute("class", "item_for_orders");
+   card__content.appendChild(divForItems);
+   divForItems.appendChild(nameItem).textContent = order[0];
+   divForItems.appendChild(priceItem).textContent = order[1];
+   ACTIVE_USER.basket.push(Number(order[1].replace("$", "")));
+   console.log(ACTIVE_USER.basket);
+   const result = ACTIVE_USER.basket
+      .reduce((acc, item) => (acc += item), 0)
+      .toFixed(2);
+   document.querySelector(".priceNum").textContent = result + "$";
+   iconsWithProduct.classList.remove("hide");
+   iconsWithProduct.textContent = ACTIVE_USER.basket.length;
 }
 
-//Order products 
+//Order products
 function implemenatationBasketIfUserAreLoggined() {
-    orderItems.forEach(el => {
-        el.addEventListener('click', function (e) {
-            e.preventDefault()
-            if (currentUser) basket.classList.remove('hide')
-        })
-    })
+   orderItems.forEach((el) => {
+      el.addEventListener("click", function (e) {
+         e.preventDefault();
+         if (currentUser) basket.classList.remove("hide");
+      });
+   });
 
-    //Gard close
-    cardAndPrice.forEach(el => {
-        el.addEventListener('click', function (e) {
-            e.preventDefault()
-        })
-    })
+   //Gard close
+   cardAndPrice.forEach((el) => {
+      el.addEventListener("click", function (e) {
+         e.preventDefault();
+      });
+   });
 }
 
-implemenatationBasketIfUserAreLoggined()
+implemenatationBasketIfUserAreLoggined();
 
-console.log('hello')
+console.log("hello");
+console.log("Maks commit");
