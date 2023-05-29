@@ -286,3 +286,4 @@ function implemenatationBasketIfUserAreLoggined() {
 
 implemenatationBasketIfUserAreLoggined()
 
+console.log('hello')
