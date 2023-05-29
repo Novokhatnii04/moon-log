@@ -1,0 +1,236 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Coffee</title>
+    <link rel="stylesheet" href="./app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@200;400&display=swap');
+    </style>
+    <script defer src="./variables.js"></script>
+    <script type="module" src="./script.js"></script>
+</head>
+
+<body>
+
+    <div class="overlay hide"></div>
+
+    <header id="head">
+        <nav class="header-content sticky">
+            <img src="./PhotoMoon/logowithoutborders.png" alt="MoonLogo" class="avatar">
+
+            <label class="burger" for="burger">
+                <input type="checkbox" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="info_link">
+                <ul class="nav_links">
+                    <li>
+                        <a href="#sec2" class="nav_link">ІНФОРМАЦІЯ</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav_link">СЛАЙДЕР</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav_link">ПРОДУКЦІЯ</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="logBtn styleForLogs">
+                <h5><a href="#" class="log">Вход</a></h5>
+                <h5><a href="#" class="reg">Регистрация</a></h5>
+            </div>
+
+            <div class="userLog styleForLogs hide">
+                <div>
+                    <h1 class="personName">User</h1>
+                    <h1> | </h1>
+                    <a href="#" class="exit">Выход</a>
+                </div>
+            </div>
+
+            <div class="basketContent hide">
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                <h5 class="iconsAboutProd hide">0</h5>
+            </div>
+        </nav>
+
+        <nav>
+            <div class="divForMenu">
+            </div>
+            <div class="greet_text">
+                <h4>WELCOME TO</h4>
+                <h1 class="name">MOON COFFEE</h1>
+            </div>
+            <div class="btn_nav">
+                <button type="button" class="btn1 bottn">БІЛЬШЕ</button>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="coffee_content">
+            <h1 class="first_name--section">ІНФОРМАЦІЯ</h1>
+            <div class="aboutInfo first_info--case" id="sec2">
+                <img src="./PhotoMoon/tools-used-process-coffee-making-2.jpg" alt="photo1" class="style_photo">
+                <div class="infoSection">
+                    <h1>ЗНАЙОМСТВО</h1>
+                    <p>Наша кав'ярня була нарожденна не так давно ,
+                        <br> але ми точно знаємо, як робити якісно та смачно.
+                        <br> Наша кава, виготовленна на складах Колумбії та Мексики ,
+                        <br> та імпортована відразу до нас.
+                    </p>
+                </div>
+            </div>
+            <div class="second_info--case aboutInfo">
+                <div class="infoSection leftInfoSec">
+                    <div class="loc">
+                        <div>
+                            <h1>ЛОКАЦІЯ</h1>
+                            <p> Ми знаходимось на "ЖК Київский маєток", <br>
+                                Ви є наш гість, тому ви можете проводити час у нас
+                                <br>скільки вам потрібно, але в межах графіку роботи ;)
+                            </p>
+                        </div>
+                        <img src="./PhotoMoon/0kPAaTFtmJNn.jpg" alt="photo2" class="style_photo ">
+                    </div>
+                </div>
+            </div>
+            <div class="aboutInfo thirty_info--case">
+                <img src="./PhotoMoon/wood-coffee-tiulpany-tulips-kofe-buket-chashka-cup-flowers-t.jpg" alt="photo2"
+                    class="style_photo">
+                <div class="infoSection">
+                    <h1>ПРОДУКЦІЯ</h1>
+                    <p>Ми знаходимось на "ЖК Київский маєток" <br>
+                        Ви є наш гість, тому ви можете проводити час у нас
+                        <br>скільки вам потрібно, але в межах графіку роботи ;)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div id="sec3">
+            <div class="btnNav">
+                <button type="button" class="btnSelect btn1 tab" data-="0">Кофе и Еда</button>
+                <button type="button" class="btnSelect btn2" data-="1">Опыт и вкус</button>
+                <button type="button" class="btnSelect btn3" data-="2">График работы</button>
+            </div>
+            <div class="containerForNextInfo">
+                <div class="nextInfo inf0" data-="0">
+                    <h1>Lorem ipsum dolor sit.</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur.
+                        <br> Lorem ipsum dolor sit amet consectetur adipisicing.
+                        <br> Lorem ipsum dolor sit amet consectetur.
+                        <br> Lorem ipsum dolor sit.
+                    </p>
+                </div>
+                <div class="nextInfo inf1 hide" data-="1">
+                    <h1>Lorem ipsum dolor sit amet.</h1>
+                    <p> Lorem ipsum dolor sit amet consectetur. <br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, impedit.
+                        <br>Lorem ipsum dolor sit amet.
+                    </p>
+                </div>
+                <div class="nextInfo inf2 hide" data-="2">
+                    <h1> Lorem, ipsum. </h1>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, aspernatur.<br>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, eaque esse deleniti impedit
+                        soluta repellendus aut corporis libero quis itaque similique ullam minima blanditiis ducimus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sec-with-prod">
+        <span class="production">
+            <h1>Продукція</h1>
+        </span>
+        <div class="products">
+            <div class="item" data-crs="0">
+                <img src="./PhotoMoon/images.jpg" alt="croassaint" class="itemAvatar">
+                <h3>Круасан з шоколадом</h3>
+                <div class="cardAndPrice">
+                    <h2>2.99$</h2>
+                    <a href="#"><i class="fas fa-shopping-cart cardItem" data-crs="0"></i></a>
+                </div>
+            </div>
+            <div class="item" data-crs="1">
+                <img src="./PhotoMoon/images.jpg" alt="croassaint" class="itemAvatar">
+                <h3>Круасан з мигдалью</h3>
+                <div class="cardAndPrice">
+                    <h2>3.55$</h2>
+                    <a href="#"><i class="fas fa-shopping-cart cardItem" data-crs="1"></i></a>
+                </div>
+            </div>
+            <div class="item" data-crs="2">
+                <img src="./PhotoMoon/images.jpg" alt="croassaint" class="itemAvatar">
+                <h3>Круасан з яйцем</h3>
+                <div class="cardAndPrice">
+                    <h2>6.99$</h2>
+                    <a href="#"><i class="fas fa-shopping-cart cardItem" data-crs="2"></i></a>
+                </div>
+            </div>
+            <div class="item" data-crs="3">
+                <img src="./PhotoMoon/images.jpg" alt="croassaint" class="itemAvatar">
+                <h3>Круасан з яблуком</h3>
+                <div class="cardAndPrice">
+                    <h2>2.99$</h2>
+                    <a href="#"><i class="fas fa-shopping-cart cardItem" data-crs="3"></i></a>
+                </div>
+            </div>
+            <div class="item" data-crs="4">
+                <img src="./PhotoMoon/images.jpg" alt="croassaint" class="itemAvatar">
+                <h3>Круасан з повидлом</h3>
+                <div class="cardAndPrice">
+                    <h2>1.99$</h2>
+                    <a href="#"><i class="fas fa-shopping-cart cardItem" data-crs="4"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BASKET ----------------------------------------------------------------------------------- -->
+    <div class="basketPos hide">
+        <div class="cardBasket">
+            <div class="xclsoe">
+                <h3 class="card__title">Корзина</h3>
+                <a href="#" class="x">
+                    <h4>X</h4>
+                </a>
+            </div>
+            <div class="card__content">
+                <!-- empty div for created elements from basket -->
+            </div>
+            <div class="card__arrow">
+                <a href="./paypal.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="15" width="15"
+                        href="./paypal.html">
+                        <path fill="#fff"
+                            d="M13.4697 17.9697C13.1768 18.2626 13.1768 18.7374 13.4697 19.0303C13.7626 19.3232 14.2374 19.3232 14.5303 19.0303L20.3232 13.2374C21.0066 12.554 21.0066 11.446 20.3232 10.7626L14.5303 4.96967C14.2374 4.67678 13.7626 4.67678 13.4697 4.96967C13.1768 5.26256 13.1768 5.73744 13.4697 6.03033L18.6893 11.25H4C3.58579 11.25 3.25 11.5858 3.25 12C3.25 12.4142 3.58579 12.75 4 12.75H18.6893L13.4697 17.9697Z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+            <hr>
+            <div class="prices">
+                <h4>Сумма</h4>
+                <h4 class="priceNum">0.00</h4>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
