@@ -311,3 +311,7 @@ implemenatationBasketIfUserAreLoggined();
 
 console.log("hello");
 console.log("Maks commit");
+
+
+
+console.log('thr')
