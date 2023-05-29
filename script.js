@@ -311,3 +311,4 @@ implemenatationBasketIfUserAreLoggined();
 
 console.log("hello");
 console.log("Maks commit");
+console.log("Maks add new branch and commit");
